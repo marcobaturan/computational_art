@@ -1,3 +1,5 @@
+# usr/bin/env/python3
+# Call modules
 import turtle
 from random import randint
 import random
@@ -17,13 +19,17 @@ turtle.setup(600, 600)
 turtle.bgcolor("lightgrey")
 turtle.title('Algorithmic random Human Art Generator')
 turtle.pensize(3)
-# give color
+
+# Functions
 def color():
+    """Give random color"""
      R = random.random()
      G = random.random()
      B = random.random()
      turtle.color(R, G, B)
+
 # Draw figures
+
 def square():
     """Draw square"""
     turtle.pendown()
@@ -43,6 +49,7 @@ def rectangle():
     turtle.penup()
 
 def triangle():
+    """Draw triangle"""
     turtle.pendown()
     for sido in range(3):
         turtle.forward(meter)
@@ -70,6 +77,7 @@ def spinning_squares():
     turtle.penup()
 
 def spiral():
+    """Draw spiral"""
     turtle.pendown()
     for i in range(1, 50):
         turtle.forward(meter)
@@ -78,6 +86,7 @@ def spiral():
     turtle.penup()
 
 while running:
+    """Main loop"""
     message = """Enter triangle, square, rectangle, circle, 
                  spinning squares, spiral or exit: """
     entered = input(message)
