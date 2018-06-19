@@ -4,6 +4,15 @@ import turtle
 from random import randint
 import random
 
+""" Algorithmic Random Human Computational Art.
+
+        It is a program which start from algorithm, random function,
+        geometric figures and human decision  for generate
+        pictures where color and position are random.
+        Just follow the command line message from the program.
+    
+"""  # Documentation.
+
 # variables
 running = True
 # Define standard angles
@@ -20,13 +29,15 @@ turtle.bgcolor("lightgrey")
 turtle.title('Algorithmic random Human Art Generator')
 turtle.pensize(3)
 
+
 # Functions
 def color():
     """Give random color"""
-     R = random.random()
-     G = random.random()
-     B = random.random()
-     turtle.color(R, G, B)
+    R = random.random()
+    G = random.random()
+    B = random.random()
+    turtle.color(R, G, B)
+
 
 # Draw figures
 
@@ -38,6 +49,7 @@ def square():
         turtle.left(right)
     turtle.penup()
 
+
 def rectangle():
     """Draw rectangle"""
     turtle.pendown()
@@ -48,6 +60,7 @@ def rectangle():
         turtle.left(right)
     turtle.penup()
 
+
 def triangle():
     """Draw triangle"""
     turtle.pendown()
@@ -56,18 +69,20 @@ def triangle():
         turtle.left(half_obtuse)
     turtle.penup()
 
+
 def circle():
     """Draw a circle"""
     turtle.pendown()
     turtle.circle(50)
     turtle.penup()
 
+
 def spinning_squares():
     """Generate three spinning scares by a turtle"""
     turtle.pendown()
     turtle.left(flat)
     turtle.up()
-    turtle.forward(3*meter)
+    turtle.forward(3 * meter)
     turtle.down()
     iteration = 1
     while iteration <= 3:
@@ -75,6 +90,7 @@ def spinning_squares():
         square()
         iteration += 1
     turtle.penup()
+
 
 def spiral():
     """Draw spiral"""
@@ -85,10 +101,23 @@ def spiral():
         side = meter + 7
     turtle.penup()
 
+
+def star():
+    """Draw star"""
+    turtle.pendown()
+    angle = 120
+    for side in range(5):
+        turtle.forward(50)
+        turtle.right(angle)
+        turtle.forward(50)
+        turtle.right(72 - angle)
+    turtle.penup()
+
+
 while running:
     """Main loop"""
     message = """Enter triangle, square, rectangle, circle, 
-                 spinning squares, spiral or exit: """
+                 spinning squares, spiral, star or exit: """
     entered = input(message)
     x = randint(0, 300)
     y = randint(0, 300)
@@ -112,6 +141,9 @@ while running:
         turtle.end_fill()
     elif entered == 'spiral':
         spiral()
+    elif entered == 'star':
+        star()
+        turtle.end_fill()
     elif entered == 'exit':
         running == 'false'
         print('Exiting...Oh! I forget, click in window for close. :-)')
